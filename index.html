@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo List</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="Enter your Item" id="listdata">
+    <button onclick="AddTask()">Add Task</button>
+    <ul id="messages"></ul>
+    <script>
+        const messages =document.getElementById("messages")
+        function AddTask(){
+            const data =document.getElementById("listdata")
+            const item =data.value
+
+            const li = document.createElement("li")
+
+            li.textContent = item
+
+            messages.appendChild(li)
+            data.value=""
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.style.backgroundColor = "red";
+            deleteBtn.style.color = "white";
+            deleteBtn.style.borderRadius = "10px";
+            
+            deleteBtn.style.cursor = "pointer";
+
+            deleteBtn.onclick = function () {
+            li.remove();
+            };
+
+            li.appendChild(deleteBtn);
+
+        }
+    </script>
+</body>
+</html>
